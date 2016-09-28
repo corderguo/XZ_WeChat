@@ -1,0 +1,23 @@
+//
+//  PrefixHeader.pch
+//  XZ_WeChat
+//
+//  Created by 郭现壮 on 16/9/27.
+//  Copyright © 2016年 gxz. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef DEBUG
+#define ICLog(format, ...)    NSLog(format, ##__VA_ARGS__)
+#else
+#define ICLog(format, ...)
+#endif
+
+#import "XZConstants.h"
+#import "XZHeaderFile.h"
+
+
+
+#endif /* PrefixHeader_pch */
