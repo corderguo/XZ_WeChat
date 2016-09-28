@@ -2,7 +2,8 @@
 
 博客介绍地址：[戳这里](http://coderperson.com/2016/09/28/iOS-weChat/)
 
-效果图展示：![1](http://img.blog.csdn.net/20160928230616321)
+效果图展示：			
+![1](http://img.blog.csdn.net/20160928230616321)		
 ![2](http://img.blog.csdn.net/20160928230519993)		
 
 
