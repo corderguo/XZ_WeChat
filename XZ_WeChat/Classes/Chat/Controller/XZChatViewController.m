@@ -17,6 +17,7 @@
     UIMenuItem * _copyMenuItem;
     UIMenuItem * _deleteMenuItem;
     UIMenuItem * _forwardMenuItem;
+    UIMenuItem * _recallMenuItem;
     NSIndexPath *_longIndexPath;
     
     BOOL   _isKeyBoardAppear;     // 键盘是否弹出来了
@@ -65,7 +66,6 @@
     [self.view addSubview:self.tableView];
     
     self.tableView.backgroundColor = IColor(240, 237, 237);
-    
     // self.view的高度有时候是不准确的
     self.tableView.frame = CGRectMake(0, HEIGHT_NAVBAR+HEIGHT_STATUSBAR, self.view.width, APP_Frame_Height-HEIGHT_TABBAR-HEIGHT_NAVBAR-HEIGHT_STATUSBAR);
 }
@@ -274,9 +274,24 @@
     self.voiceHud.hidden = YES;
     if (voicePath) {
         ICMessageFrame *messageF = [ICMessageHelper createMessageFrame:TypeVoice content:@"[语音]" path:voicePath from:@"gxz" to:self.group.gId fileKey:nil isSender:YES receivedSenderByYourself:NO];
-//        NSString *amrPath = [[voicePath stringByDeletingPathExtension] stringByAppendingPathExtension:@"amr"];
         [self addObject:messageF isSender:YES];
         [self messageSendSucced:messageF];
+    }
+}
+
+
+#pragma mark - baseCell delegate
+
+- (void)longPress:(UILongPressGestureRecognizer *)longRecognizer
+{
+    if (longRecognizer.state == UIGestureRecognizerStateBegan) {
+        CGPoint location       = [longRecognizer locationInView:self.tableView];
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+        _longIndexPath         = indexPath;
+        id object              = [self.dataSource objectAtIndex:indexPath.row];
+        if (![object isKindOfClass:[ICMessageFrame class]]) return;
+        ICChatMessageBaseCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [self showMenuViewController:cell.bubbleView andIndexPath:indexPath message:cell.modelFrame.model];
     }
 }
 
@@ -305,6 +320,11 @@
         UIView *redView        = (UIView *)userInfo[RedView];
         [self chatVoiceTaped:modelFrame voiceIcon:imageView redView:redView];
     }
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
 }
 
 #pragma mark - voice & video
@@ -497,6 +517,70 @@
     // 这里文件路径重新给，根据文件名字来拼接
     NSString *name = [[originPath lastPathComponent] stringByDeletingPathExtension];
     return [[ICRecordManager shareManager] receiveVoicePathWithFileKey:name];
+}
+
+- (void)showMenuViewController:(UIView *)showInView andIndexPath:(NSIndexPath *)indexPath message:(ICMessageModel *)messageModel
+{
+    if (_copyMenuItem   == nil) {
+        _copyMenuItem   = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(copyMessage:)];
+    }
+    if (_deleteMenuItem == nil) {
+        _deleteMenuItem = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(deleteMessage:)];
+    }
+    if (_forwardMenuItem == nil) {
+        _forwardMenuItem = [[UIMenuItem alloc] initWithTitle:@"转发" action:@selector(forwardMessage:)];
+    }
+    NSInteger currentTime = [ICMessageHelper currentMessageTime];
+    NSInteger interval    = currentTime - messageModel.message.date;
+    if (messageModel.isSender) {
+        if ((interval/1000) < 5*60 && !(messageModel.message.deliveryState == ICMessageDeliveryState_Failure)) {
+            if (_recallMenuItem == nil) {
+                _recallMenuItem = [[UIMenuItem alloc] initWithTitle:@"撤回" action:@selector(recallMessage:)];
+            }
+            [[UIMenuController sharedMenuController] setMenuItems:@[_copyMenuItem,_deleteMenuItem,_recallMenuItem,_forwardMenuItem]];
+        } else {
+            [[UIMenuController sharedMenuController] setMenuItems:@[_copyMenuItem,_deleteMenuItem,_forwardMenuItem]];
+        }
+    } else {
+        [[UIMenuController sharedMenuController] setMenuItems:@[_copyMenuItem,_deleteMenuItem,_forwardMenuItem]];
+    }
+    [[UIMenuController sharedMenuController] setTargetRect:showInView.frame inView:showInView.superview ];
+    [[UIMenuController sharedMenuController] setMenuVisible:YES animated:YES];
+}
+
+- (void)copyMessage:(UIMenuItem *)copyMenuItem
+{
+    UIPasteboard *pasteboard  = [UIPasteboard generalPasteboard];
+    ICMessageFrame * messageF = [self.dataSource objectAtIndex:_longIndexPath.row];
+    pasteboard.string         = messageF.model.message.content;
+}
+
+- (void)deleteMessage:(UIMenuItem *)deleteMenuItem
+{
+    // 这里还应该把本地的消息附件删除
+    ICMessageFrame * messageF = [self.dataSource objectAtIndex:_longIndexPath.row];
+    [self statusChanged:messageF];
+}
+
+- (void)recallMessage:(UIMenuItem *)recallMenuItem
+{
+    // 这里应该发送消息撤回的网络请求
+    ICMessageFrame * messageF = [self.dataSource objectAtIndex:_longIndexPath.row];
+    [self statusChanged:messageF];
+}
+
+
+- (void)statusChanged:(ICMessageFrame *)messageF
+{
+    [self.dataSource removeObject:messageF];
+    [self.tableView beginUpdates];
+    [self.tableView deleteRowsAtIndexPaths:@[_longIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+}
+
+- (void)forwardMessage:(UIMenuItem *)forwardItem
+{
+    ICLog(@"需要用到的数据库，等添加了数据库再做转发...");
 }
 
 #pragma mark - Getter and Setter

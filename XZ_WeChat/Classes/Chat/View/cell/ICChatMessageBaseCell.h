@@ -17,6 +17,7 @@
 
 - (void)longPress:(UILongPressGestureRecognizer *)longRecognizer;
 
+@optional
 - (void)headImageClicked:(NSString *)eId;
 - (void)reSendMessage:(ICChatMessageBaseCell *)baseCell;
 

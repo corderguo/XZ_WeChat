@@ -99,5 +99,8 @@ typedef void(^Finish)(ICMessageFrame *messageF);
 
 + (NSString *)timeDurationFormatter:(NSUInteger)duration;
 
+/// 当前时间
++ (NSInteger)currentMessageTime;
+
 
 @end
