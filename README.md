@@ -3,8 +3,8 @@
 博客介绍地址：[戳这里](http://coderperson.com/2016/09/28/iOS-weChat/)
 
 效果图展示：			
-![1](http://img.blog.csdn.net/20160928230616321)		
-![2](http://img.blog.csdn.net/20160928230519993)		
+![1](http://oet7ffdgt.bkt.clouddn.com/1.gif)		
+![2](http://oet7ffdgt.bkt.clouddn.com/2.gif)		
 
 
 
@@ -33,6 +33,7 @@
 * 转场动画相关的知识
 * 数据模型和尺寸模型分离
 * 你能清楚的了解到在实战项目中IM的实现	
+* 等等等很多知识点都可以学习到
 
 
 目前该框架这是初步，我还有好多功能没有加入进去，后续会慢慢加入，包括：		
