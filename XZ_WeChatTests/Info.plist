@@ -2,8 +2,51 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>访问相册</string>
+	<key>NSCameraUsageDescription</key>
+	<string>访问相机</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>访问麦克风</string>
+	<key>NSLocationUsageDescription</key>
+	<string>访问位置</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>始终访问位置</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>访问日历</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>访问提醒事项</string>
+	<key>NSMotionUsageDescription</key>
+	<string>访问运动与健身</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>访问健康更新 </string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>访问健康分享</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>访问蓝牙</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>访问媒体资料库</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
+	<key>CFBundleDisplayName</key>
+	<string>XZ_WeChat</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>ShareImage</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>public.image</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,12 +56,112 @@
 	<key>CFBundleName</key>
 	<string>XZ_WeChat</string>
 	<key>CFBundlePackageType</key>
-	<string>BNDL</string>
+	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string></string>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>icom</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ennew</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>0.9.5.6</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+		<string>wechat</string>
+		<string>iosamap</string>
+		<string>ic81103CA3D3484443</string>
+		<string>ic35218EFE00DE41EA</string>
+		<string>ic1967E5197FF44280</string>
+		<string>icDE1CCE7571F542A1</string>
+		<string>ic9EAA21594CBF4096</string>
+		<string>icE42A0C42571A4CFA</string>
+		<string>ic99DE6D67454A40A8</string>
+		<string>icBAA8B9B80E8349D0</string>
+		<string>ic9F3059DC164C45CD</string>
+		<string>ic4F95577CB72D44AA</string>
+		<string>ic8FD187EA3ADF47B5</string>
+		<string>ic1EF9381C3B6740D9</string>
+		<string>ic3A7D7C6E7AEA40B9</string>
+		<string>icDDA2091888EF4AB8</string>
+		<string>icF8D39E5AA1984B61</string>
+		<string>ic6AA81FF66C564811</string>
+		<string>ic78B54CA8A2BC41E7</string>
+		<string>icB2D35FFF55CA4AED</string>
+		<string>ic0394924296B4495F</string>
+		<string>ic35C0605C40C54685</string>
+		<string>ic7E421449C6C04164</string>
+		<string>icE1D6F2F5E5B6454C</string>
+		<string>icF8058062FF874084</string>
+		<string>ic584FF74A3D3B4FC6</string>
+		<string>icB407971BE10B414F</string>
+		<string>ic0B56AED62EB744CA</string>
+		<string>ic2AF4B1B22BB543A5</string>
+		<string>ic8E7691AF89D141CF</string>
+		<string>ic9E177A3E2D1F44D2</string>
+		<string>ic2A53993D4CB04190</string>
+		<string>ic9D35C89C73924004</string>
+		<string>ic2672B39E805B406B</string>
+		<string>icB2815BC9E4024EB6</string>
+		<string>ic322C52C7E64F49BC</string>
+		<string>icA0854087E05C484F</string>
+		<string>ic327D66FAE9D14511</string>
+		<string>ic97C0DE2F4642434B</string>
+		<string>icE2870FE94FFF4C94</string>
+		<string>ic86DD1E15C3504365</string>
+		<string>icFC771A57222A46DC</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAllowsArbitraryLoads</key>
+	<true/>
+	<key>NSAllowsArbitraryLoadsInWebContent</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UIRequiresFullScreen</key>
+	<false/>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>
