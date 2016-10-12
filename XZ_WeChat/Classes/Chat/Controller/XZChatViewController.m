@@ -566,7 +566,11 @@
 {
     // 这里应该发送消息撤回的网络请求
     ICMessageFrame * messageF = [self.dataSource objectAtIndex:_longIndexPath.row];
-    [self statusChanged:messageF];
+    [self.dataSource removeObject:messageF];
+    
+    ICMessageFrame *msgF = [ICMessageHelper createMessageFrame:TypeSystem content:@"你撤回了一条消息" path:nil from:@"gxz" to:self.group.gId fileKey:nil isSender:YES receivedSenderByYourself:NO];
+    [self.dataSource insertObject:msgF atIndex:_longIndexPath.row];
+    [self.tableView reloadData];
 }
 
 
