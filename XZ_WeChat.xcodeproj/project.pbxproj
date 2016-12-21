@@ -1094,7 +1094,7 @@
 				TargetAttributes = {
 					5FBCC0FF1D9A17B000AD6A6B = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = HXA3E8963G;
+						DevelopmentTeam = 4S4NQ7M9P4;
 					};
 					5FBCC1181D9A17B000AD6A6B = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1383,7 +1383,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = HXA3E8963G;
+				DEVELOPMENT_TEAM = 4S4NQ7M9P4;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XZ_WeChat/PrefixHeader.pch;
@@ -1394,7 +1394,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/XZ_WeChat/Classes/Main/Lib/VoiceConvert/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.icom.dev.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mmytest.wwf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1405,7 +1405,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = HXA3E8963G;
+				DEVELOPMENT_TEAM = 4S4NQ7M9P4;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XZ_WeChat/PrefixHeader.pch;
@@ -1416,7 +1416,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/XZ_WeChat/Classes/Main/Lib/VoiceConvert/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.icom.dev.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mmytest.wwf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
