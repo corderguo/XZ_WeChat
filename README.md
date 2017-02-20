@@ -1,8 +1,9 @@
 # XZ_WeChat
 
-博客介绍地址：[戳这里](http://coderperson.com/2016/09/28/iOS-weChat/)		
+博客介绍地址：[戳这里](http://coderperson.com/2016/09/28/iOS-weChat/)	
 
-如果使用xcode8.0的模拟器访问相册时崩溃，则换成真机即可。我也是在升级到xcode8.0后遇到的问题，稍后会解决。
+
+建议使用真机测试。
 
 效果图展示：			
 ![1](http://oet7ffdgt.bkt.clouddn.com/1.gif)		
@@ -35,6 +36,7 @@
 * 转场动画相关的知识
 * 数据模型和尺寸模型分离
 * 你能清楚的了解到在实战项目中IM的实现	
+* 各种封装完善的工具类拿走即用（叫我雷锋o(╯□╰)o）
 * 等等等很多知识点都可以学习到
 
 
@@ -56,16 +58,6 @@
 
 
 10月12日：添加了系统消息，当消息撤回的时候聊天界面上提示一条`你撤回了一条消息`的提示。当多人聊天的时候，如果一方撤回了一条消息，系统应该给你发送一条指令，根据这条指令你识别出是哪一条消息被撤回了，然后删除这条消息，并且插入一条`谁谁撤回了一条消息`。				
-
-10月12日：适配xcode8.0，解决bug，如果用xcode8.0的模拟器访问相册时崩溃，则换成真机即可，我也是在升级到xcode8.0后遇到的问题，问题如下：			
-
-	
-```objc
-objc[6777]: Class PLBuildVersion is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/AssetsLibraryServices.framework/AssetsLibraryServices (0x1227c3910) and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices (0x1225ed210). One of the two will be used. Which one is undefined.
-```		
-
-奇怪的是我原项目中没有遇到该问题，而抽出来的这个聊天框架却遇到了问题，我猜想是我项目中使用了cocoapods来管理三方，而该聊天框架中我是直接导入的，稍后我会集成cocoapods，尝试问题的解决。大家若有解决方法可以给我留言，大家共同提高。
-
 
 
 
