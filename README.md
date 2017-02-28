@@ -4,6 +4,7 @@
 
 
 建议使用真机测试。
+如果遇到问题，大家可以直接在Issues提问，这样大家都能看到，共同提高。
 
 效果图展示：			
 ![1](http://oet7ffdgt.bkt.clouddn.com/1.gif)		
